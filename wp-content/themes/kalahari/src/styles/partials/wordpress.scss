@@ -1,0 +1,51 @@
+@use 'include-media/dist/_include-media.scss' as *;
+
+.wpcf7-form {
+  margin-bottom: 2.5rem;
+
+  section {
+    @include media('>tablet') {
+      display: grid;
+      gap: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    > :last-child label {
+      height: 100%;
+      display: grid;
+      gap: 0.5rem;
+      grid-template-rows: auto 1fr;
+    }
+  }
+
+  textarea,
+  input:not([type='submit']) {
+    color: var(--color-background);
+    padding: 1rem;
+    width: 100%;
+    display: block;
+  }
+
+  textarea {
+    height: 100%;
+  }
+
+  .submit {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+
+    input {
+      width: 100%;
+
+      @include media('>tablet') {
+        width: auto;
+      }
+    }
+  }
+}
