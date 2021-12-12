@@ -50,6 +50,29 @@ function kalahari_add_meta_tags() {
 }
 add_action('wp_head', 'kalahari_add_meta_tags', '1');
 
+function kalahari_add_theme_colors() {
+  $pageWidth = get_theme_mod('site-page-width') ? get_theme_mod('site-page-width') : '1024px';
+  $colorFooter = get_theme_mod('site-color-footer') ? get_theme_mod('site-color-footer') : '#250900';
+  $colorBackground = get_theme_mod('site-color-background') ? get_theme_mod('site-color-background') : '#1a0003';
+  $colorPrimary = get_theme_mod('site-color-primary') ? get_theme_mod('site-color-primary') : '#fae5ac';
+  $colorSecondary = get_theme_mod('site-color-Secondary') ? get_theme_mod('site-color-secondary') : '#301406';
+  $colorTertiary = get_theme_mod('site-color-tertiary') ? get_theme_mod('site-color-tertiary') : '#c7522e';
+
+  echo '
+    <style>
+      :root {
+        --page-width: '. $pageWidth .';
+        --color-footer: '. $colorFooter .';
+        --color-background: '. $colorBackground .';
+        --color-primary: '. $colorPrimary .';
+        --color-secondary: '. $colorSecondary .';
+        --color-tertiary: '. $colorTertiary .';
+      }
+    </style>
+  ';
+}
+add_action('wp_head', 'kalahari_add_theme_colors', '1');
+
 // body class
 function kalahari_body_classes($classes) {
   global $post;
@@ -70,3 +93,6 @@ add_theme_support('title-tag');
 
 // thumbnail
 add_theme_support('post-thumbnails');
+
+// excerpt
+add_post_type_support('page', 'excerpt');
