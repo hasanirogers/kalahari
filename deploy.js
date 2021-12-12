@@ -11,12 +11,12 @@ let filterDirs;
 
 if (isDev) {
   localDir = '/wp-content/themes';
-  remoteDir = '/var/www/antbell.hasanirogers.me/public_html/wp-content/themes';
+  remoteDir = '/var/www/kalahari.hasanirogers.me/public_html/wp-content/themes';
   filterDirs = /^(?!.*(.git|.github|node_modules))/gm;
 } else {
-  localDir = '/';
-  remoteDir = '/var/www/antbellmusic.com/public_html';
-  filterDirs = /^(?!.*(.git|.github|node_modules))/gm;
+  // localDir = '/wp-content/themes';
+  // remoteDir = '/var/www/antbellmusic.com/public_html';
+  // filterDirs = /^(?!.*(.git|.github|node_modules))/gm;
 }
 
 require('dotenv').config();
